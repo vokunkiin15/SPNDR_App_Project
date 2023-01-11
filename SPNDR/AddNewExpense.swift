@@ -63,8 +63,13 @@ class AddNewExpense: UIViewController//, UIPickerViewDataSource
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        var currString = ""
+        var currString : String
+        if LocalStorageManager.getCurrency() == nil {
+            currString = "BD"
+        }
+        else {
             currString = LocalStorageManager.getCurrency()!.currencySymbol
+        }
         picker.reloadAllComponents()
     }
     
